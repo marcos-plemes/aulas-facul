@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    aleatorio = nullptr;
 }
 
 MainWindow::~MainWindow()
@@ -22,11 +23,12 @@ void MainWindow::on_btnGerarSemente_clicked()
 void MainWindow::on_btnGerarNumeros_clicked()
 {
     try {
+        if(aleatorio != nullptr)
+            delete aleatorio;
         this->verificarCampos();
         this->aleatorio = new Gerador(ui->lineQuantidade->text().toInt(),ui->lineSemente->text().toInt());
         this->aleatorio->gerarNumeros();
         ui->textVetorNumeros->setText(this->aleatorio->obterVetor());
-        delete aleatorio;
     }  catch (QString &msg) {
         QMessageBox::critical(this,"ERRO",msg);
     } catch (std::bad_alloc &ba) {
@@ -39,4 +41,14 @@ void MainWindow::verificarCampos() {
         throw QString("Digite uma quantidade de numeros!!");
     if(ui->lineSemente->text().isEmpty())
         throw QString("Digite uma semente!!");
+}
+
+void MainWindow::on_btnBuscar_clicked()
+{
+    int pos = aleatorio->buscarNumero(ui->lineBuscar->text().toInt());
+    if(pos < 0) {
+        ui->labelBusca->setText("O numero não esta registrado nesse vetor!");
+    } else {
+        ui->labelBusca->setText("O numero ta na posição: "+QString::number(pos));
+    }
 }

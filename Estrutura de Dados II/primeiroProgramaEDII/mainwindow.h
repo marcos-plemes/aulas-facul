@@ -25,6 +25,8 @@ private slots:
 
     void verificarCampos();
 
+    void on_btnBuscar_clicked();
+
 private:
     Ui::MainWindow *ui;
     Gerador *aleatorio;

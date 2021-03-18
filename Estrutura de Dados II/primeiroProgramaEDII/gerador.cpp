@@ -42,3 +42,11 @@ QString Gerador::obterVetor() {
     }
     return vetorString;
 }
+
+int Gerador::buscarNumero(int numero) {
+    for(int i=0; i<this->quantidade; i++) {
+        if(numero == vetor[i])
+            return i;
+    }
+    return -1;
+}

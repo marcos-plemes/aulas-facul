@@ -22,6 +22,8 @@ public:
 
     QString obterVetor();
 
+    int buscarNumero(int numero);
+
     int getQuantidade() {
         return this->quantidade;
     }
