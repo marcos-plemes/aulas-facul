@@ -1,6 +1,8 @@
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 class Main {
     public static void main(String[] args) {
@@ -17,13 +19,20 @@ class Main {
             new Item("Cômoda", 43, BigDecimal.valueOf(447.97))
         );
 
+        Genetica genetica = new Genetica();
+
         Integer pesoMaximo = 500;
         Integer numeroDeCromossomos = 150;
         Integer numeroDeGeracoes = 100;
-        
 
-        for(Item item: itens) {
-            System.out.println(item.getNome());
+        Random gerador = new Random();
+        
+        List<List<Integer>> populacao = new ArrayList<>();
+
+        genetica.gerarPopulacaoInicial(populacao, itens.size(), numeroDeCromossomos);
+
+        for(List<Integer> individuo: populacao) {
+            System.out.println(individuo);
         }
     }
 }
