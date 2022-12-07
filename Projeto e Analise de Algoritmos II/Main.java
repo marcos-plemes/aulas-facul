@@ -22,15 +22,16 @@ class Main {
         Genetica genetica = new Genetica();
 
         Integer pesoMaximo = 500;
-        Integer numeroDeCromossomos = 150;
+        Integer numeroDeCromossomos = 2;
         Integer numeroDeGeracoes = 100;
 
         Random gerador = new Random();
         
         List<List<Integer>> populacao = new ArrayList<>();
+        List<BigDecimal> historicoDeFitnes = new ArrayList<>();
 
         genetica.gerarPopulacaoInicial(populacao, itens.size(), numeroDeCromossomos);
-
+        historicoDeFitnes.add(genetica.mediaDeFitness(itens, populacao, pesoMaximo));
         for(List<Integer> individuo: populacao) {
             System.out.println(individuo);
         }
