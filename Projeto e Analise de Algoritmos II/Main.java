@@ -17,7 +17,7 @@ class Main {
             new Item("Cômoda", 43, BigDecimal.valueOf(447.97))
         );
 
-        Genetica genetica = new Genetica(500,70,110, itens);
+        Genetica genetica = new Genetica(500,70,115, itens);
 
         genetica.build();
 
