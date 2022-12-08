@@ -185,13 +185,18 @@ public class Genetica {
         System.out.println(this.populacao.get(0));
         System.out.println();
         Integer pesoTotal = 0;
+        BigDecimal valorTotal = BigDecimal.ZERO;
         for(int i = 0; i<this.itens.size(); i++) {
             if(this.populacao.get(0).get(i).equals(1)) {
                 System.out.println(this.itens.get(i).getNome());
+                pesoTotal += this.itens.get(i).getPeso();
+                valorTotal = valorTotal.add(this.itens.get(i).getValor());
             }
         }
 
         System.out.println();
+        System.out.println("Peso total:" + pesoTotal);
+        System.out.println("Valor total:" + valorTotal);
 
 
     }
