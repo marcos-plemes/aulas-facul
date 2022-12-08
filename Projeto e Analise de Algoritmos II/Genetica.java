@@ -197,7 +197,7 @@ public class Genetica {
 
         System.out.println();
         System.out.println("Peso total:" + pesoTotal);
-        System.out.println("Valor total:" + valorTotal);
+        System.out.println("Valor total: R$ " + valorTotal.divide(BigDecimal.ONE, 2, RoundingMode.HALF_UP));
 
 
     }
