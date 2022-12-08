@@ -182,6 +182,7 @@ public class Genetica {
     }
 
     private void imprimirSolucao() {
+        System.out.println();
         System.out.println(this.populacao.get(0));
         System.out.println();
         Integer pesoTotal = 0;
